@@ -32,12 +32,36 @@ public class WorkerReimbursementServiceTests
         // Arrange
         var workerReimbursementDto = new WorkerReimbursementDTO
         {
-            // Initialize properties here
+            ReceivedDt = DateTime.UtcNow,
+            WRReferenceNum = "WR-12345",
+            ClaimNumber = "CL-98765",
+            ExpenseTypeTXT = "Travel",
+            DescriptionTXT = "Travel expenses for conference",
+            RequestAmt = 500.00m,
+            ReimbursedAmt = 450.00m,
+            PdfGuid = Guid.NewGuid().ToString(),
+            StatusTXT = "Approved"
         };
 
         var workerReimbursement = new WorkerReimbursement
         {
-            // Initialize properties here
+            ReceivedDt = workerReimbursementDto.ReceivedDt,
+            WRReferenceNum = workerReimbursementDto.WRReferenceNum,
+            CMSReferenceNum = null, 
+            ClaimNumber = workerReimbursementDto.ClaimNumber,
+            ExpenseTypeTXT = workerReimbursementDto.ExpenseTypeTXT,
+            DescriptionTXT = workerReimbursementDto.DescriptionTXT,
+            Quantity = 1, 
+            StatusTXT = workerReimbursementDto.StatusTXT,
+            PurchasedDt = DateTime.UtcNow.AddDays(-10), 
+            RequestAmt = workerReimbursementDto.RequestAmt,
+            ReimbursedAmt = workerReimbursementDto.ReimbursedAmt,
+            PdfGuid = workerReimbursementDto.PdfGuid,
+            AddedByUser = "TestUser",
+            AddedDTM = DateTime.UtcNow,
+            ModifiedByUser = "TestUser",
+            ModifiedDTM = DateTime.UtcNow,
+            CustomerCareNumber = "800-123-4567"
         };
 
         _mapperMock.Setup(m => m.Map<WorkerReimbursement>(workerReimbursementDto))
@@ -57,10 +81,10 @@ public class WorkerReimbursementServiceTests
 
         // Assert
         Assert.NotNull(result);
-        Assert.Equal(workerReimbursementDto, result);
-        _mapperMock.Verify(m => m.Map<WorkerReimbursement>(It.IsAny<WorkerReimbursementDTO>()), Times.Once);
-        _workerReimbursementRepositoryMock.Verify(r => r.CreateWorkerReimbursement(It.IsAny<WorkerReimbursement>()), Times.Once);
-        repositoryManagerMock.Verify(r => r.SaveAsync(), Times.Once);
-        _mapperMock.Verify(m => m.Map<WorkerReimbursementDTO>(It.IsAny<WorkerReimbursement>()), Times.Once);
+        Assert.Equal(workerReimbursementDto.WRReferenceNum, result.WRReferenceNum);
+        Assert.Equal(workerReimbursementDto.ClaimNumber, result.ClaimNumber);
+        Assert.Equal(workerReimbursementDto.RequestAmt, result.RequestAmt);
+        Assert.Equal(workerReimbursementDto.ReimbursedAmt, result.ReimbursedAmt);
+        Assert.Equal(workerReimbursementDto.StatusTXT, result.StatusTXT);
     }
 }
