@@ -4,16 +4,15 @@ using Reimbursement.Presentation.ActionFilters;
 using Contracts;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Formatters;
-using Microsoft.Extensions.Options;
 using NLog;
-using Shared.DataTransferObjects;
 using Repository;
+using FluentValidation;
+using Entities.Models.DataTransferObjects;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // logging service
-LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
+LogManager.Setup().LoadConfigurationFromFile(string.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
 
 // add services
 builder.Services.ConfigureCors();
@@ -35,6 +34,7 @@ builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddAuthentication();
 builder.Services.ConfigureIdentity();
+builder.Services.AddValidatorsFromAssemblyContaining<WorkerReimbursementDTOValidator>();
 builder.Services.ConfigureJWT(builder.Configuration);
 builder.Services.ConfigureSwagger();
 
@@ -51,7 +51,6 @@ builder.Services.AddCustomMediaTypes();
 builder.Services.Configure<ApiBehaviorOptions>(options => { options.SuppressModelStateInvalidFilter = true; });
 
 builder.Services.AddScoped<ValidationFilterAttribute>();
-builder.Services.AddScoped<ValidateMediaTypeAttribute>();
 
 builder.Services.AddControllers().AddApplicationPart(typeof(Reimbursement.Presentation.AssemblyReference).Assembly);
 

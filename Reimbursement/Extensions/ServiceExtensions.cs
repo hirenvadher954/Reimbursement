@@ -22,11 +22,6 @@ namespace Reimbursement.Extensions;
 
 public static class ServiceExtensions
 {
-    // CORS cross-origin resource sharing
-
-    // AllowAnyOrigin -> WithOrigins("example.com")
-    // AllowAnyMethod -> WithMethods("POST", "GET")
-    // AllowAnyHeader -> WithHeaders("accept", "content-type")
     public static void ConfigureCors(this IServiceCollection services) =>
         services.AddCors(options =>
         {
@@ -147,7 +142,7 @@ public static class ServiceExtensions
         var jwtConfiguration = new JwtConfiguration();
         configuration.Bind(jwtConfiguration.Section, jwtConfiguration);
 
-        var secretKey = Environment.GetEnvironmentVariable("SECRET");
+        var secretKey = Environment.GetEnvironmentVariable("SECRET_KEY");
 
         services.AddAuthentication(opt =>
             {

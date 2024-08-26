@@ -18,9 +18,17 @@ namespace Repository
 
             modelBuilder.ApplyConfiguration(new TestReimbursementConfiguration());
 			modelBuilder.ApplyConfiguration(new RoleConfiguration());
+			
+			modelBuilder.Entity<Payment>()
+				.HasMany(p => p.PaymentItems)
+				.WithOne(pi => pi.Payment)
+				.HasForeignKey(pi => pi.PaymentID);
 		}
 
-		public DbSet<TestReimbursement>? Companies { get; set; }
+		public DbSet<TestReimbursement>? TestReimbursements { get; set; }
+		public DbSet<Payment> Payments { get; set; }
+		public DbSet<PaymentItem> PaymentItems { get; set; }
+		public DbSet<WorkerReimbursement> WorkerReimbursements { get; set; }
 	}
 }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using Contracts;
+using Entities.Models;
 
 namespace Repository
 {
@@ -12,6 +13,11 @@ namespace Repository
 		{
 			_repositoryContext = repositoryContext;
 			_testReimbursementRepository = new Lazy<ITestReimbursementRepository>(() => new TestReimbursementRepository(repositoryContext));
+		}
+		
+		public IRepositoryBase<TDocument> GetRepository<TDocument, TId>() where TDocument : BaseEntity<TId>
+		{
+			return new RepositoryBase<TDocument>(_repositoryContext);
 		}
 
 		public ITestReimbursementRepository TestReimbursement => _testReimbursementRepository.Value;

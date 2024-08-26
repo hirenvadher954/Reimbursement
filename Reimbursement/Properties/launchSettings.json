@@ -15,7 +15,8 @@
       "launchBrowser": false,
       "applicationUrl": "http://0.0.0.0:5000",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "SECRET_KEY": "ReimbursementSecretKey"
       }
     },
     "IIS Express": {

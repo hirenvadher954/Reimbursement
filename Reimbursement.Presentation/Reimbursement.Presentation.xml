@@ -4,5 +4,51 @@
         <name>Reimbursement.Presentation</name>
     </assembly>
     <members>
+        <member name="M:Reimbursement.Presentation.Controllers.BaseRestController`3.#ctor(Service.Contracts.IServiceManager,FluentValidation.IValidator{`1})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Reimbursement.Presentation.Controllers.BaseRestController`3"/> class.
+            </summary>
+            <param name="service">base service</param>
+            <param name="validator">validator</param>
+        </member>
+        <member name="M:Reimbursement.Presentation.Controllers.BaseRestController`3.GetEntity(`2)">
+            <summary>
+            Get the entity.
+            </summary>
+            <param name="id">The Id.</param>
+            <returns>Action result with dto.</returns>
+            <exception cref="T:Entities.Exceptions.NotFoundException">Not found exception.</exception>
+        </member>
+        <member name="M:Reimbursement.Presentation.Controllers.BaseRestController`3.AddEntity(`1)">
+            <summary>
+            Add entity.
+            </summary>
+            <param name="dto">The dto to be added.</param>
+            <returns>The dto added.</returns>
+        </member>
+        <member name="M:Reimbursement.Presentation.Controllers.BaseRestController`3.UpdateEntity(`2,`1)">
+            <summary>
+            Update entity.
+            </summary>
+            <param name="id">The id of the entity.</param>
+            <param name="dto">The dto to be updated.</param>
+            <returns>The dto updated.</returns>
+        </member>
+        <member name="M:Reimbursement.Presentation.Controllers.BaseRestController`3.DeleteEntity(`2)">
+            <summary>
+            Delete entity.
+            </summary>
+            <param name="id">The id of the entity.</param>
+            <returns>True if deleted.</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Reimbursement.Presentation.Controllers.BaseRestController`3.GetAllEntities" -->
+        <member name="M:Reimbursement.Presentation.Controllers.BaseRestController`3.PerformValidation(`1,System.Func{System.Threading.Tasks.Task{`1}})">
+            <summary>
+            Perform validation based on the dto fluentvalidator
+            </summary>
+            <param name="dto">dto</param>
+            <param name="action">action</param>
+            <returns>Task of action result</returns>
+        </member>
     </members>
 </doc>
