@@ -16,7 +16,6 @@ namespace Repository
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.ApplyConfiguration(new TestReimbursementConfiguration());
 			modelBuilder.ApplyConfiguration(new RoleConfiguration());
 			
 			modelBuilder.Entity<Payment>()
@@ -25,7 +24,6 @@ namespace Repository
 				.HasForeignKey(pi => pi.PaymentID);
 		}
 
-		public DbSet<TestReimbursement>? TestReimbursements { get; set; }
 		public DbSet<Payment> Payments { get; set; }
 		public DbSet<PaymentItem> PaymentItems { get; set; }
 		public DbSet<WorkerReimbursement> WorkerReimbursements { get; set; }

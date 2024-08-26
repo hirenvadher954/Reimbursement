@@ -1,18 +1,19 @@
 ﻿using System;
 using Contracts;
+using Contracts.Repositories;
 using Entities.Models;
 
 namespace Repository
 {
-	public class RepositoryManager : IRepositoryManager
+    public class RepositoryManager : IRepositoryManager
 	{
 		private readonly RepositoryContext _repositoryContext;
-		private readonly Lazy<ITestReimbursementRepository> _testReimbursementRepository;
+		private readonly Lazy<IWorkerReimbursementRepository> _testReimbursementRepository;
 
 		public RepositoryManager(RepositoryContext repositoryContext)
 		{
 			_repositoryContext = repositoryContext;
-			_testReimbursementRepository = new Lazy<ITestReimbursementRepository>(() => new TestReimbursementRepository(repositoryContext));
+			_testReimbursementRepository = new Lazy<IWorkerReimbursementRepository>(() => new WorkerReimbursementRepository(repositoryContext));
 		}
 		
 		public IRepositoryBase<TDocument> GetRepository<TDocument, TId>() where TDocument : BaseEntity<TId>
@@ -20,7 +21,7 @@ namespace Repository
 			return new RepositoryBase<TDocument>(_repositoryContext);
 		}
 
-		public ITestReimbursementRepository TestReimbursement => _testReimbursementRepository.Value;
+		public IWorkerReimbursementRepository WorkerReimbursement => _testReimbursementRepository.Value;
 
 		public async Task SaveAsync() => await _repositoryContext.SaveChangesAsync();
 	}

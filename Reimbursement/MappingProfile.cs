@@ -6,21 +6,16 @@ using Shared.DataTransferObjects;
 
 namespace Reimbursement
 {
-	public class MappingProfile : Profile
-	{
-		public MappingProfile()
-		{
-			CreateMap<TestReimbursement, TestReimbursementDTO>()
-				.ForMember(c => c.FullAddress,
-				opt => opt.MapFrom(x => string.Join(' ', x.Address, x.Country)));
+    public class MappingProfile : Profile
+    {
+        public MappingProfile()
+        {
+            CreateMap<WorkerReimbursement, WorkerReimbursementDTO>().ReverseMap();
+            CreateMap<Payment, PaymentDTO>().ReverseMap();
+            CreateMap<PaymentItem, PaymentItemDTO>().ReverseMap();
 
-			CreateMap<WorkerReimbursement, WorkerReimbursementDTO>().ReverseMap();
-			CreateMap<Payment, PaymentDTO>().ReverseMap();
-			CreateMap<PaymentItem, PaymentItemDTO>().ReverseMap();
-			
 
-			CreateMap<UserForRegistrationDTO, User>();
+            CreateMap<UserForRegistrationDTO, User>();
         }
-	}
+    }
 }
-

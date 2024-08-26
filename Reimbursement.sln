@@ -5,19 +5,23 @@ VisualStudioVersion = 17.0.31717.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reimbursement", "Reimbursement\Reimbursement.csproj", "{88C813E8-77AF-48EF-878A-845BCB65AF0B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Contracts.csproj", "{34BE7923-06AC-40A4-8E55-4F8571BB30BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "Contracts\Contracts.csproj", "{34BE7923-06AC-40A4-8E55-4F8571BB30BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggerService", "LoggerService\LoggerService.csproj", "{9E744DC7-776F-41E6-B13B-EEAB75961F89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggerService", "LoggerService\LoggerService.csproj", "{9E744DC7-776F-41E6-B13B-EEAB75961F89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{216D6D68-A0FE-4E76-9620-B4B47473773B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{216D6D68-A0FE-4E76-9620-B4B47473773B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{ECCE1B17-8E24-4AFD-8613-8ED8966F2491}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{ECCE1B17-8E24-4AFD-8613-8ED8966F2491}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{8B4EDD2C-C6C0-4BA4-8845-A6E6B3213401}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.csproj", "{8B4EDD2C-C6C0-4BA4-8845-A6E6B3213401}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reimbursement.Presentation", "Reimbursement.Presentation\Reimbursement.Presentation.csproj", "{AF14C4ED-927C-49E6-A2C9-F1BEFA62C16D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reimbursement.Presentation", "Reimbursement.Presentation\Reimbursement.Presentation.csproj", "{AF14C4ED-927C-49E6-A2C9-F1BEFA62C16D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{EC57A162-59E2-4DF8-AC54-D0F46208C888}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{EC57A162-59E2-4DF8-AC54-D0F46208C888}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{18C3FE28-1538-466F-8225-5D57420EECBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Tests", "Service.Tests\Service.Tests.csproj", "{87A8D23A-760F-4852-AC34-F2E8B6CD7B39}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,9 +61,16 @@ Global
 		{EC57A162-59E2-4DF8-AC54-D0F46208C888}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC57A162-59E2-4DF8-AC54-D0F46208C888}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC57A162-59E2-4DF8-AC54-D0F46208C888}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87A8D23A-760F-4852-AC34-F2E8B6CD7B39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87A8D23A-760F-4852-AC34-F2E8B6CD7B39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87A8D23A-760F-4852-AC34-F2E8B6CD7B39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87A8D23A-760F-4852-AC34-F2E8B6CD7B39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{87A8D23A-760F-4852-AC34-F2E8B6CD7B39} = {18C3FE28-1538-466F-8225-5D57420EECBA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DE51EBE3-9EE6-4C34-96A1-E92AE661460A}

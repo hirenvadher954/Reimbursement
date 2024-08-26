@@ -5,7 +5,7 @@ namespace Service.Contracts
 {
 	public interface IServiceManager
 	{
-		ITestReimbursementService TestReimbursementService { get; }
+		IWorkerReimbursementService WorkerReimbursementService { get; }
 		IAuthenticationService AuthenticationService { get; }
 		
 		IServiceBase<TDocument, TDto, TId> GetServiceBase<TDocument, TDto, TId>()
