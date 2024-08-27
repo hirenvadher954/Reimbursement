@@ -13,9 +13,6 @@ namespace Reimbursement
             CreateMap<WorkerReimbursement, WorkerReimbursementDTO>().ReverseMap();
             CreateMap<Payment, PaymentDTO>().ReverseMap();
             CreateMap<PaymentItem, PaymentItemDTO>().ReverseMap();
-
-
-            CreateMap<UserForRegistrationDTO, User>();
         }
     }
 }
