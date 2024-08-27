@@ -16,5 +16,9 @@ public class PaymentItemDTO : BaseEntityDTO<long>
     public long? InvoiceID { get; set; }
     public long? WorkerCCN { get; set; }
     public string WorkerName { get; set; }
+    public string AddedByUser { get; set; }
+    public DateTime AddedDTM { get; set; }
+    public string ModifiedByUser { get; set; }
+    public DateTime ModifiedDTM { get; set; }
     public string ThirdPartyPayeeID { get; set; }
 }

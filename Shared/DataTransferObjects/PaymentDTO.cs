@@ -12,4 +12,8 @@ public class PaymentDTO : BaseEntityDTO<long>
     public DateTime? PaymentStatusDate { get; set; }
     public string PaymentReference { get; set; }
     public string PayeeType { get; set; }
+    public string AddedByUser { get; set; }
+    public DateTime AddedDTM { get; set; }
+    public string ModifiedByUser { get; set; }
+    public DateTime ModifiedDTM { get; set; }
 }

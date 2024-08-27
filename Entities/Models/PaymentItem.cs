@@ -16,6 +16,10 @@ public class PaymentItem :  BaseEntity<long>
     public long? InvoiceID { get; set; }
     public long? WorkerCCN { get; set; }
     public string WorkerName { get; set; }
+    public string AddedByUser { get; set; } = string.Empty;
+    public DateTime AddedDTM { get; set; }
+    public string ModifiedByUser { get; set; } = string.Empty;
+    public DateTime ModifiedDTM { get; set; }
     public string ThirdPartyPayeeID { get; set; }
 
     // Navigation property to Payment

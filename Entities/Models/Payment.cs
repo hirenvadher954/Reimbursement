@@ -12,7 +12,10 @@ public class Payment : BaseEntity<long>
     public DateTime? PaymentStatusDate { get; set; }
     public string PaymentReference { get; set; }
     public string PayeeType { get; set; }
-
+    public string AddedByUser { get; set; } = string.Empty;
+    public DateTime AddedDTM { get; set; }
+    public string ModifiedByUser { get; set; } = string.Empty;
+    public DateTime ModifiedDTM { get; set; }
     // Navigation property to PaymentItem
     public ICollection<PaymentItem> PaymentItems { get; set; }
 }
