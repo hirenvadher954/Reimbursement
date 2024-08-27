@@ -78,7 +78,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.UseSwagger();
-app.UseSwaggerUI(s => { s.SwaggerEndpoint("/swagger/v1/swagger.json", "Ed API v1"); });
+app.UseSwaggerUI(s => { s.SwaggerEndpoint("/swagger/v1/swagger.json", "v1"); });
 
 app.MapControllers();
 
