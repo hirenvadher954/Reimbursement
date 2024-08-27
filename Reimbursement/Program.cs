@@ -16,7 +16,6 @@ LogManager.Setup().LoadConfigurationFromFile(string.Concat(Directory.GetCurrentD
 
 // add services
 builder.Services.ConfigureCors();
-builder.Services.ConfigureIISIntegration();
 builder.Services.ConfigureLoggerService();
 builder.Services.ConfigureRepositoryManager();
 builder.Services.ConfigureServiceManager();
@@ -33,7 +32,6 @@ builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddAuthentication();
 builder.Services.AddValidatorsFromAssemblyContaining<WorkerReimbursementDTOValidator>();
-builder.Services.ConfigureJWT(builder.Configuration);
 builder.Services.ConfigureSwagger();
 
 builder.Services.AddControllers(config =>
@@ -76,8 +74,11 @@ app.UseHttpCacheHeaders();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseSwagger();
-app.UseSwaggerUI(s => { s.SwaggerEndpoint("/swagger/v1/swagger.json", "v1"); });
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(s => { s.SwaggerEndpoint("/swagger/v1/swagger.json", "v1"); });
+}
 
 app.MapControllers();
 

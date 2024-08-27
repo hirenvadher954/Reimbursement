@@ -6,6 +6,7 @@ using Entities.Models.DataTransferObjects;
 using Moq;
 using Service;
 
+namespace Service.Tests;
 public class WorkerReimbursementServiceTests
 {
     private readonly Mock<IWorkerReimbursementRepository> _workerReimbursementRepositoryMock;
