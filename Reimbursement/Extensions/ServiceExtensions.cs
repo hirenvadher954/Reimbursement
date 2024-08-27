@@ -108,21 +108,6 @@ public static class ServiceExtensions
         services.AddSingleton<IProcessingStrategy, AsyncKeyLockProcessingStrategy>();
     }
 
-    public static void ConfigureIdentity(this IServiceCollection services)
-    {
-        var builder = services.AddIdentity<User, IdentityRole>(o =>
-            {
-                o.Password.RequireDigit = true;
-                o.Password.RequireLowercase = true;
-                o.Password.RequireUppercase = true;
-                o.Password.RequireNonAlphanumeric = false;
-                o.Password.RequiredLength = 10;
-                o.User.RequireUniqueEmail = true;
-            })
-            .AddEntityFrameworkStores<RepositoryContext>()
-            .AddDefaultTokenProviders();
-    }
-
     public static void ConfigureJWT(this IServiceCollection services, IConfiguration configuration)
     {
         var jwtConfiguration = new JwtConfiguration();

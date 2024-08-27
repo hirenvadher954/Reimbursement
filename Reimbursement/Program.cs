@@ -32,7 +32,6 @@ builder.Services.ConfigureRateLimitingOptions();
 builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddAuthentication();
-builder.Services.ConfigureIdentity();
 builder.Services.AddValidatorsFromAssemblyContaining<WorkerReimbursementDTOValidator>();
 builder.Services.ConfigureJWT(builder.Configuration);
 builder.Services.ConfigureSwagger();
