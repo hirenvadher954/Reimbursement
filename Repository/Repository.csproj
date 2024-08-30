@@ -30,7 +30,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Configuration\" />
     <Folder Include="Extensions\" />
     <Folder Include="Extensions\Utility\" />
   </ItemGroup>

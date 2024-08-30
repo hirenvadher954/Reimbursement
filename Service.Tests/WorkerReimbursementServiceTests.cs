@@ -2,9 +2,8 @@ using AutoMapper;
 using Contracts;
 using Contracts.Repositories;
 using Entities.Models;
-using Entities.Models.DataTransferObjects;
 using Moq;
-using Service;
+using Shared.WorkerReimbursements;
 
 namespace Service.Tests;
 public class WorkerReimbursementServiceTests
@@ -40,7 +39,7 @@ public class WorkerReimbursementServiceTests
             DescriptionTXT = "Travel expenses for conference",
             RequestAmt = 500.00m,
             ReimbursedAmt = 450.00m,
-            PdfGuid = Guid.NewGuid().ToString(),
+            PdfGuid = Guid.NewGuid(),
             StatusTXT = "Approved"
         };
 

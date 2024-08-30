@@ -1,4 +1,5 @@
-﻿using Entities.Models;
+﻿using System.Linq.Expressions;
+using Entities.Models;
 
 namespace Service.Contracts;
 
@@ -33,7 +34,13 @@ public interface IServiceBase<TDocument, TDto, TId>
     /// <param name="id">id.</param>
     /// <returns> true if the document was deleted.</returns>
     Task<bool> DeleteItemAsync(TId id);
-
+    
+    
+    /// <summary>
+    /// Find by Conditions
+    /// </summary>
+    /// <returns> the result contains the documents matching the provided conditions.</returns>
+    Task<IEnumerable<TDto>> FindByConditionsAsync(Expression<Func<TDocument, bool>> conditions);
 
     /// <summary>
     /// Get all items.

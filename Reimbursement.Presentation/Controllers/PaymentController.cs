@@ -1,8 +1,8 @@
 ﻿using Entities.Models;
-using Entities.Models.DataTransferObjects;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using Service.Contracts;
+using Shared.DataTransferObjects;
 
 namespace Reimbursement.Presentation.Controllers;
 

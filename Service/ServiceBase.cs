@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Linq.Expressions;
+using AutoMapper;
 using Contracts;
 using Entities.Exceptions;
 using Entities.Models;
@@ -57,6 +58,13 @@ public class ServiceBase<TDocument, TDto, TId> : IServiceBase<TDocument, TDto, T
         TDocument document = await GetEntityAndCheckIfItExists(id, true);
         await _repository.SaveAsync();
         return true;
+    }
+
+    /// <inheritdoc/>
+    public async Task<IEnumerable<TDto>> FindByConditionsAsync(Expression<Func<TDocument, bool>> conditions)
+    {
+        IEnumerable<TDocument> documents = await _repository.FindByCondition(conditions, false).ToListAsync();
+        return _mapper.Map<IEnumerable<TDto>>(documents);
     }
 
     /// <inheritdoc/>

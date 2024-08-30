@@ -1,4 +1,4 @@
-﻿namespace Entities.Models.DataTransferObjects;
+﻿namespace Shared.DataTransferObjects;
 
 public abstract class BaseEntityDTO<TId>
 {

@@ -3,7 +3,7 @@ using Entities.Models;
 
 namespace Contracts.Repositories;
 
-public interface IWorkerReimbursementRepository
+public interface IWorkerReimbursementRepository : IRepositoryBase<WorkerReimbursement>
 {
     void CreateWorkerReimbursement(WorkerReimbursement testReimbursement);
 }

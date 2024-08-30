@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using Shared.WorkerReimbursements;
 
 namespace Entities.Models.DataTransferObjects;
 
